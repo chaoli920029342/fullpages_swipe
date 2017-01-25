@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>第一创业</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="apple-mobile-web-app-title" content=""/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="telephone=no" name="format-detection" />
+<style type="text/css">
+body{padding:0;margin:0;font-style:normal;font-weight:normal;border:0;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -webkit-highlight: none;outline:none; font-family: 'Helvetica Neue',Helvetica,"Segoe UI", "Lucida Grande", "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3",Arial, sans-serif;}	
+.swipe{overflow:hidden;visibility:hidden;position:relative;}
+.swipe-wrap{overflow:hidden;position: relative;}
+.swipe-wrap > .wrap {float:left;width:100%;position: relative;}
+</style>
+</head>
+<body>
+<div id="slider" class="swipe">
+	<div class="swipe-wrap">
+		<div class="wrap"></div>
+		<div class="wrap"></div>
+		<div class="wrap"></div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/swipe.js"></script>
+<script type="text/javascript">
+	
+var mySwipe = new Swipe(document.getElementById('slider'), {
+  startSlide: 2,
+  speed: 400,
+  auto: 3000,
+  continuous: true,
+  disableScroll: false,
+  stopPropagation: false,
+  callback: function(index, elem) {},
+  transitionEnd: function(index, elem) {}
+});
+
+
+/*
+startSlide Integer (默认:0) - Swipe开始的索引
+speed Integer (默认:300) - 前进和后台的速度，单位毫秒.
+auto Integer - 自动滑动 (time in milliseconds between slides)
+continuous Boolean (默认:true) -是否可以循环播放（注：我设置为false好像也是循环的）
+disableScroll Boolean (默认:false) - 停止触摸滑动
+stopPropagation Boolean (默认:false) -停止事件传播
+callback Function - 回调函数，可以获取到滑动中图片的索引，当前位置
+transitionEnd Function - 在最后滑动转化是执行.
+
+swipe扩展了几个函数，以便于更好的通过脚本来控制滑动。
+prev() 上一页
+next() 下一页
+getPos() 返回当前div（class='wrap'的div）的索引
+getNumSlides() 返回滑块总数（貌似无效）
+slide(index, duration) 设置滑到的索引 (duration: 转化的速度，单位毫秒)
+
+demo:
+
+var slider =
+  Swipe(document.getElementById('slider'), {
+    auto: 0, //0为不自动播放
+    continuous: true,
+    callback: function(pos) {	
+	$("nav li").eq(pos).addClass("on").siblings().removeClass("on"); //获取当前wrap的索引，所以要加1
+	replaceParamVal(pos);
+    }
+  });
+
+
+*/
+</script>
+</body>
+</html>
